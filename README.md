@@ -19,6 +19,32 @@ Script with `git clone git@<gitlab-server>/namespace/path/project.git` lines
 
 Install terraform
 
+Create file `terrafor.tfvars` with content
+
+```hcl
+################################################
+# Your Gitlab API URL
+################################################
+gitlab_base_url = "https://gitlab.ru/api/v4/"
+################################################
+# Create your Gitlab Token in Users Profile menu.
+# Set access to api
+################################################
+gitlab_token    = "yR8zNpo34624rj5JZ-f"
+################################################
+# Name of the group which you want to clone 
+# to your computer
+################################################
+current_group = "mycode"
+################################################
+# Set to `true` if want to include subgroups. 
+# Note that archived projects are not allowed 
+# (you can change it 
+# in data.gitlab_projects.group_projects)
+################################################
+include_subgroups = true
+```
+
 ```bash
 terraform init
 terraform plan
